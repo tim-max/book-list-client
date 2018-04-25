@@ -1,7 +1,7 @@
 # Book App Week 3
 
 **Author**: Tim & Max
-**Version**: 2.0.0 
+**Version**: 3.0.0 
 
 ## Overview
 This is a full stack application which will render data from a PostgresSQL database in the browser
@@ -23,6 +23,8 @@ HTML, CSS, JS, node modules (express, pg, cors)
 04-24-2018 12:45pm - Set up database table
 
 04-24-2018 1:05pm - Connect client application to heroku user database
+
+04-25-2018 9:00am - Filled out additional server.js queries and directory files
 
 ## Credits and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->

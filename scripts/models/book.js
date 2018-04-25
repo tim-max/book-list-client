@@ -10,3 +10,22 @@ let ENV = {
     //if or ternary / it will select either the cloud or the local
     //set it to localhost 3000 to have it work local
 };
+
+Books.prototype.toHtml = function(){
+    let template = Handlebars.compile($("#books-detail-template").text());
+    return template(this);
+};
+    
+Books.add = book => {
+    $.post(`${ENV.cloudApi}/api/v1/books`)
+    .then(Books.loadAll)
+    .then(callback)
+    .catch(errorCallback);
+};
+
+Books.fetchOne = callback => {
+    $.get(`${ENV.apiUrl}/api/v1/books/:id`)
+    .then(Books.loadAll)
+    .then(callback)
+    .catch(errorCallback);
+};
