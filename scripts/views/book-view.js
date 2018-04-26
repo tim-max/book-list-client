@@ -11,8 +11,8 @@ var app = app || {};
     }
 
     bookView.initIndexPage = function (ctx) {
-        // $('.container').hide();
-        // $('.book-view').show();
+        $('.container').hide();
+        $('.book-view').show();
         $('#items ul').empty();
         show('items');
 
@@ -32,5 +32,14 @@ var app = app || {};
             }
         });
     };
+    bookView.initUpdateFormPage = (ctx) => {
+        $('.container').hide();
+        // $('').show();
 
-}(app));
+        //Using jQuery, target each of the form inputs and pre-populate with their respective values from the book object passed through via ctx.
+
+        // $('#book_id').on('change', 'input, textarea', bookView.create);
+        $('#book_id').on('submit', bookView.submit);
+    };
+    module.bookView = bookView;
+})(app);

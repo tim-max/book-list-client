@@ -7,7 +7,7 @@
     <base href="./" />
     <title>Book App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="base.css" />
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="base.css" /> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
 
@@ -27,11 +27,28 @@
         <p>{{description}}</p>
     </script>
 
-
-
 </head>
+<header>
+    <ul>
+        <li class="nav">
+            <a href="/">Home</a>
+        </li>
+        <li class="nav">
+            <a href="/books/:book_id/update">Update</a>
+        </li>
+        <li class="nav">
+            <a href="/api/v1/books/:id">Delete</a>
+        </li>
+        <li class="nav">
+            <a href="/book/:id">Book Page</a>
+        </li>
+        <li class="nav">
+            <a href="/add">Add</a>
+        </li>
+    </ul>
+</header>
 
-<body>This branch works!!!
+<body>
 
     <section id="items" class="container">
         <ul id="book-items">
@@ -67,6 +84,8 @@
     <script src="scripts/models/book.js"></script>
     <script src="scripts/views/book-view.js"></script>
     <script src="scripts/views/error-view.js"></script>
+    <script src="scripts/views/admin-view.js"></script>
+    <script src="scripts/views/routes.js"></script>
     <!-- <script>
         Book.fetchAll(bookView.initIndexPage());
     </script> -->

@@ -1,6 +1,6 @@
 'use strict';
+var app = app || {};
 
-let app = app || {};
 (function (module) {
     const errorView = {};
 
@@ -19,11 +19,11 @@ let app = app || {};
         $('#error-message').append(template);
     });
 
-    function errorCallback(err) {
+    errorView.errorCallback = (err => {
         console.log(err);
         //pass the error to the errorView.initErrorPage view method
-    }
+    });
 
     module.errorView = errorView;
 
-}(app));
+})(app);
