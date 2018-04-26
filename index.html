@@ -8,15 +8,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
+    <!-- add page.js -->
+
+
+
 </head>
 
 <body>This branch works!!!
 
-    <form id="book_id" class="container">
+    <section id="items" class="container">
+        <ul id="book-items"></ul>
 
-    </form>
+    </section>
+
     <section id="book_id" class="container">
 
+    </section>
+
+    <section id="add" container="container">
+        <form id="book_id" class="container">
+            <input type="text" name="title" placeholder="title" />
+            <input type="text" name="author" placeholder="author" />
+            <input type="text" name="isbn" placeholder="isbn" />
+            <input type="text" name="image url" placeholder="image url" />
+            <input type="text" name="description" placeholder="description" />
+            <button>Submit</button>
+        </form>
     </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>

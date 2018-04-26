@@ -5,11 +5,16 @@
     //also need this?
     var errorView = {};
 
+    let err = {
+        status: 404,
+        message: 'something'
+    }
+
     errorView.initErrorPage = (err) => {
         $('.container').hide();
         $('.errorView').show();
         $('#error-message').empty();
-        var template = Handlebars.compile($('#error-template').text(err));
+        var template = Handlebars.compile($('#error-template').text());
         //renders the err argument into the template and appends it ?
         return template(this);
     };
@@ -19,4 +24,4 @@
         //pass the error to the errorView.initErrorPage view method
     }
 }());
-//app
+//appa
