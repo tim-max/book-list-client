@@ -26,6 +26,8 @@ HTML, CSS, JS, node modules (express, pg, cors)
 
 04-25-2018 9:00am - Filled out additional server.js queries and directory files
 
+04-26-2018 11:00am - added fucntionality to book.js and index.html / added admin.js / fixed code in error-view.js
+
 ## Credits and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 -->

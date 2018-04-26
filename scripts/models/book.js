@@ -1,3 +1,5 @@
+'use strict';
+
 let ENV = {
     currentUrl: window.location.protocol === 'https',
     //reference to our client gh pages one / or the localhost8080
@@ -5,7 +7,7 @@ let ENV = {
     //link to heroku app // reference to server
     localApi: 'http://localhost:3000',
     //localhost:3000 this is the nodemon = the local server
-    setApi: currentUrl ? cloudApi : localApi,
+    setApi: ENV.currentUrl ? ENV.cloudApi : ENV.localApi,
     //this eill be a function that checks to see if you are runnign https / or http
     //if or ternary / it will select either the cloud or the local
     //set it to localhost 3000 to have it work local
