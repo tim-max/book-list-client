@@ -11,7 +11,7 @@ var app = app || {};
         $('#admin form').on('submit', function (e) {
             e.preventDefault();
             let token = e.target.passphrase.value;
-            $.get(`${ENV.cloudApi}/authenticate`, { token })
+            $.get(`${ENV.setApi}/authenticate`, { token })
                 .then((token) => {
                     if (!token) {
                         throw new Error('Invalid Token');
@@ -22,4 +22,6 @@ var app = app || {};
                 .catch(() => page('/'));
         });
     };
-}(app));
+
+    module.adminView = adminView;
+})(app);
