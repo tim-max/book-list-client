@@ -1,4 +1,4 @@
-
+'use strict';
 
 var app = app || {};
 
@@ -19,11 +19,11 @@ var app = app || {};
         app.Book.all.forEach(book => $('#book-items').append(book.toHtml()));
     };
 
-    booksView.initAddPage = function (ctx) {
+    bookView.initAddPage = function (ctx) {
         show('add');
     };
     //using jQuery's document.ready functionality invoke Book.fetchAll
-    booksView.initBookPage = function (ctx) {
+    bookView.initBookPage = function (ctx) {
         S('#book').empty();
         show('book');
         app.Book.allEach(book => {

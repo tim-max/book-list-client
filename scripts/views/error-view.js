@@ -1,11 +1,9 @@
 'use strict';
-let app = app || {};
-(function () {
-    //modules
 
-    // var app = app || {};
-    //also need this?
-    var errorView = {};
+let app = app || {};
+(function (module) {
+    const errorView = {};
+
 
     let err = {
         status: 404,
