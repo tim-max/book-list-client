@@ -22,14 +22,13 @@ Book.prototype.toHtml = function () {
 };
 
 Book.loadAll = rows => {
-    rows.sort((a, b) => (new Date(b.publishedOn)) - (new Date(a.publishedOn)));
+    Book.all = rows.map(book => new Book(book));
     //takes rows by title?
-
 };
+
 Book.add = book => {
     $.post(`${ENV.cloudApi}/api/v1/books`)
-        .then(Book.loadAll)
-        .then(callback)
+        .then(() => page('/'))
         .catch(errorCallback);
 };
 
@@ -42,9 +41,7 @@ Book.fetchOne = callback => {
 
 Book.fetchAll = callback => {
     $.get('/api/v1/books')
-        .then(results => {
-            Book.loadAll(results);
-            callback();
-        });
-      .catch (errorCallback)
+        .then(Book.loadAll)
+        .then(callback)
+        .catch(errorCallback);
 };

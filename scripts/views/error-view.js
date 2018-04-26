@@ -1,3 +1,5 @@
+'use strict';
+let app = app || {};
 (function () {
     //modules
 
@@ -5,18 +7,25 @@
     //also need this?
     var errorView = {};
 
-    errorView.initErrorPage = (err) => {
+    let err = {
+        status: 404,
+        message: 'something'
+    }
+
+    errorView.initErrorPage = (err => {
         $('.container').hide();
         $('.errorView').show();
         $('#error-message').empty();
-        var template = Handlebars.compile($('#error-template').text(err));
+        var template = Handlebars.compile($('#error-template').text());
         //renders the err argument into the template and appends it ?
-        return template(this);
-    };
+        $('#error-message').append(template);
+    });
 
     function errorCallback(err) {
         console.log(err);
         //pass the error to the errorView.initErrorPage view method
     }
-}());
-//app
+
+    module.errorView = errorView;
+
+}(app));

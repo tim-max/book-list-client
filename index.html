@@ -4,28 +4,72 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <base href="./" />
+    <title>Book App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="base.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+
+    <script type="text/x-handlebars-template" id="book-template">
+    <li>
+        <a href="/book/{{book_id}}">{{title}}</a>
+        <h2>{{author}}</h2>
+        <img src="{{image_url}}">
+    </li>
+    </script>
+
+    <script type="text/x-handlebars-template" id="book-detail-template">
+        <h1>{{title}}</h1>
+        <h2>{{author}}</h2>
+        <h2>{{isbn}}</h2>
+        <img src="{{image_url}}">
+        <p>{{description}}</p>
+    </script>
+
+
+
 </head>
 
 <body>This branch works!!!
 
-    <form id="book_id" class="container">
+    <section id="items" class="container">
+        <ul id="book-items">
 
-    </form>
-    <section id="book_id" class="container">
+        </ul>
+    </section>
+
+    <section id="book" class="container">
 
     </section>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <section id="add" class="container">
+        <form id="book_id" class="container">
+            <input type="text" name="title" placeholder="title" />
+            <input type="text" name="author" placeholder="author" />
+            <input type="text" name="isbn" placeholder="isbn" />
+            <input type="text" name="image url" placeholder="image url" />
+            <input type="text" name="description" placeholder="description" />
+            <button>Submit</button>
+        </form>
+    </section>
+
+    <section id="admin" class="container">
+        <form>Authentication Password:
+            <input type="tnumber" name="passphrase" placeholder="password" />
+            <button>Login</button>
+        </form>
+    </section>
+
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="scripts/models/book.js"></script>
     <script src="scripts/views/book-view.js"></script>
     <script src="scripts/views/error-view.js"></script>
-    <script>
+    <!-- <script>
         Book.fetchAll(bookView.initIndexPage());
-    </script>
+    </script> -->
 </body>
 
 </html>
