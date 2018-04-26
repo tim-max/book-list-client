@@ -21,7 +21,7 @@ var app = app || {};
     };
 
     Book.loadAll = rows => {
-        Book.all = rows.map(book => new Book(book));
+        Book.all = rows.sort((a, b) => b.title - a.title).map(book => new Book(book));
         //takes rows by title?
     };
 
@@ -31,9 +31,9 @@ var app = app || {};
             .catch(errorCallback);
     };
 
-    Book.fetchOne = callback => {
-        $.get(`${ENV.setApi}/api/v1/books/:${this.book_id}`)
-            .then(Book.loadAll)
+    Book.fetchOne = (ctx, callback) => {
+        $.get(`${ENV.setApi}/api/v1/books/${ctx.params.book_id}`)
+            .then(results => ctx.book = results[0])
             .then(callback)
             .catch(errorCallback);
     };
@@ -46,13 +46,14 @@ var app = app || {};
             .catch(app.errorView.errorCallback);
     };
     Book.insertBook = function (callback) {
-        $.post(`${ENV.setApi}/books/:${this.book_id}/update`, { author: this.author, title: this.title, isbn: this.isbn, body: this.body });
+        $.post(`${ENV.setApi}/books/${this.book_id}/update`, { author: this.author, title: this.title, isbn: this.isbn, body: this.body });
         // .then(console.log)
         // .then(callback);
+        //ctx pass in
     };
     Book.update = function (callback) {
         $.ajax({
-            url: `${ENV.setApi}/books/:${this.book_id}/update`,
+            url: `${ENV.setApi}/api/v1/books/${this.book_id}`,
             method: 'PUT',
             data: {
                 book_id: this.book_id,
@@ -64,7 +65,7 @@ var app = app || {};
     };
     Book.destroy = function (callback) {
         $.ajax({
-            url: `/api/v1/books/:${this.book_id}`,
+            url: `/api/v1/books/${this.book_id}`,
             method: 'DELETE'
         });
     };

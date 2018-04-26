@@ -26,11 +26,13 @@ var app = app || {};
     bookView.initBookPage = function (ctx) {
         S('#book').empty();
         show('book');
-        app.Book.allEach(book => {
-            if (parseInt(book.book_id) === parseInt(ctx.params.id)) {
-                $('#book').append(book.detailToHtml());
-            }
-        });
+        // app.Book.allEach(book => {
+        //     if (parseInt(book.book_id) === parseInt(ctx.params.id)) {
+        //         $('#book').append(book.detailToHtml());
+        //     }
+        // });
+        let template = Handlebars.compile($('#book-detail-template').text());
+        $('#book').append(template(ctx));
     };
     bookView.initUpdateFormPage = (ctx) => {
         $('.container').hide();
